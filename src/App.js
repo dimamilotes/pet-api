@@ -85,7 +85,7 @@ render() {
             weatherMain={this.state.weatherMain}
             error={this.state.error}
             />
-          </div>
+        </div>
     </div>
     );
 }
