@@ -1,38 +1,252 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border:none !important;
+  -webkit-text-fill-color: inherit !important;
+  -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700&display=swap');
+
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  /* background-color: aqua; */
+  background: #005AA7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #005AA7, #f0ecb4);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #005AA7, #FFFDE4 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+height: 100vh;
+font-family: 'Noto Sans JP', sans-serif;
+position: relative;
+overflow: hidden;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+  max-width: 1200px;
+  margin: auto;
+  
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.minmax {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.temperature {
+  font-size: 3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.mainHeader {
+  font-weight: 300;
+  font-size: 3rem;
+  width: 80%;
+  text-align: center;
+  margin: 38px auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.form-control {
+  /* display: block; */
+  /* margin: auto;
+  margin: 15px auto; */
+  margin-left: 30px;
+}
+
+.getWeather {
+  padding: 22px 36px;
+  border-radius: 14px;
+  background-color: #ef4444;
+  color: #fff;
+  border: none ;
+}
+.getWeather:hover {
+  background-color: #da1111;
+}
+.minmaxPart {
+  margin: 10px 15px;
+}
+
+.formBox {
+  background: white;
+  border-radius: 15px;
+  display: inline-block;
+  margin: auto;
+  z-index: 10;
+}
+
+.form-st {
+padding: 5px;
+}
+.petText {
+  font-size: 0.8rem;
+  padding: 50px 0 0 0;
+}
+
+input[type=text] {
+  border: none;
+  outline:none;
+  background-color: #fff;
+}
+.weatherInfo {
+  margin-top: 40px;
+}
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
+.weatherIcon {
+  background-color: #fff;
+  border-radius: 50px;
+  margin: 25px 0 5px;
+}
+
+.cl {
+
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: -20;
+  left: -100%;
+  animation-name: cloud-1;
+  animation-duration: 40s;
+/*    left: -1337px*/
+  animation-iteration-count: infinite;
+}
+@keyframes cloud-1 {
+  0% {left:-100%;
+  top: 0px;}
+    100% {
+      left:+100%;
+      top: 0px;
+      transform: rotate(0deg)
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.cl-2 {
+
+  position: absolute;
+  top:0px;
+  width: 100%;
+  left: -100%; 
+  z-index: -30;  
+  animation-name: cloud-2;
+  animation-duration: 60s;
+/*    left: -1337px*/
+  animation-iteration-count: infinite;
+}
+@keyframes cloud-2 {
+  0% {left:-100%;
+  top: 0px;}
+    100% {
+      left:+100%;
+      top: 0px;
+      transform: rotate(0deg)
   }
+}
+.cl-5 {
+
+  position: absolute;
+  top:-30px;
+  width: 100%;
+  left: -100%;  
+  z-index: -40; 
+  animation-name: cloud-5;
+  animation-duration: 80s;
+/*    left: -1337px*/
+  animation-iteration-count: infinite;
+}
+@keyframes cloud-5 {
+  0% {left:-100%;
+  top: 0px;}
+    100% {
+      left:+100%;
+      top: 0px;
+      transform: rotate(0deg)
+  }
+}
+
+.cloud {
+  z-index: -10;
+}
+
+.sunny {
+  width: 615px;
+  height: 455px;
+  position: absolute;
+  background-image: url(sun.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation-name: sun;
+  animation-duration: 45s;
+  animation-iteration-count: infinite;
+  z-index: -10;
+}
+@keyframes sun {
+  0% {
+      left:0px;
+      top: 0px;
+      transform: rotate(0deg)
+  }
+  50% {
+      left:100px;
+      top: -80px;
+      transform: rotate(20deg)
+  }
+  100% {
+      left:0px;
+      top: 0px;
+      transform: rotate(0deg)
+  }
+}
+
+.error {
+  background: #ef4444;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 10px 0;
+}
+
+.weatherDescript {
+  font-size: 0.8rem;
+  margin-top: 10px;
 }
